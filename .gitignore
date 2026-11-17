@@ -1,0 +1,12 @@
+.venv/
+build/
+*.egg-info/
+__pycache__/
+*.so
+*.pyd
+ref/
+parity/data/*.csv
+parity/data/*.xz
+.pytest_cache/
+parity/data/
+r_out/

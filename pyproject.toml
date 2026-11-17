@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64", "wheel", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymspca"
+version = "0.1.0"
+description = "Sparse PCA with multiple components (Cory-Wright & Pauphilet, Operations Research 2026) for Python: scikit-learn API, dense, raw-data and scipy.sparse inputs"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Esa Dhanani" }]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.22", "scipy>=1.8", "scikit-learn>=1.6"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C++",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Intended Audience :: Science/Research",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pandas"]
+bench = ["matplotlib", "pandas"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

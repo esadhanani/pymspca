@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "pymspca implements the algorithm of the paper below. If you use it, please cite the paper."
+title: "pymspca: sparse PCA with multiple components for Python"
+type: software
+license: MIT
+repository-code: "https://github.com/esadhanani/pymspca"
+authors:
+  - family-names: Dhanani
+    given-names: Esa
+preferred-citation:
+  type: article
+  title: "Sparse PCA with Multiple Components"
+  authors:
+    - family-names: Cory-Wright
+      given-names: Ryan
+    - family-names: Pauphilet
+      given-names: Jean
+  journal: "Operations Research"
+  year: 2026
+  doi: "10.1287/opre.2023.0598"

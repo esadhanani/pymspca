@@ -1,0 +1,53 @@
+name: wheels
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  wheels:
+    name: wheels (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, macos-13, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pypa/cibuildwheel@v2.23.3
+        env:
+          CIBW_BUILD: "cp39-* cp310-* cp311-* cp312-* cp313-*"
+          CIBW_SKIP: "*-musllinux_* *-win32 *_i686"
+          CIBW_TEST_EXTRAS: test
+          CIBW_TEST_COMMAND: "pytest -q {project}/tests/test_core.py"
+          CIBW_TEST_ENVIRONMENT: "PYTHONPATH={project}/tests"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}
+          path: wheelhouse/*.whl
+
+  sdist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx run build --sdist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+
+  # Publishes on a GitHub release via PyPI trusted publishing (configure the "pypi"
+  # environment and a trusted publisher for this repo on pypi.org first; no token needed).
+  publish:
+    if: github.event_name == 'release'
+    needs: [wheels, sdist]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: pypa/gh-action-pypi-publish@release/v1

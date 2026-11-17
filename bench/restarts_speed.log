@@ -1,0 +1,38 @@
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'orthogonality', 'mode': 'sequential x1', 'seed': 2, 'time_s': 0.7789578752126545, 'FVE': 0.5984541114425023, 'violation': 8.346161574215971e-05}
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'orthogonality', 'mode': 'batched x1', 'seed': 2, 'time_s': 0.5708350411150604, 'FVE': 0.644859252727862, 'violation': 9.361303595236417e-05}
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'orthogonality', 'mode': 'batched x10', 'seed': 2, 'time_s': 0.5711115000303835, 'FVE': 0.644859252727862, 'violation': 9.361303595236417e-05}
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'uncorrelatedness', 'mode': 'sequential x1', 'seed': 2, 'time_s': 0.8279525840189308, 'FVE': 0.3956081593180859, 'violation': 0.00035761631501575377}
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'uncorrelatedness', 'mode': 'batched x1', 'seed': 2, 'time_s': 0.6346815419383347, 'FVE': 0.3781387767115543, 'violation': 4.1228376477992226e-05}
+{'data': 'breast cancer, Sigma p=30', 'constraint': 'uncorrelatedness', 'mode': 'batched x10', 'seed': 2, 'time_s': 0.6321524169761688, 'FVE': 0.3781387767115543, 'violation': 4.1228376477992226e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'orthogonality', 'mode': 'sequential x1', 'seed': 2, 'time_s': 47.21022845804691, 'FVE': 0.06809953539928995, 'violation': 9.778300076507352e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'orthogonality', 'mode': 'batched x1', 'seed': 2, 'time_s': 39.01592620788142, 'FVE': 0.06836417026719735, 'violation': 9.866925010906066e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'orthogonality', 'mode': 'batched x10', 'seed': 2, 'time_s': 16.62232270790264, 'FVE': 0.06836417026719735, 'violation': 9.866925010906066e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'uncorrelatedness', 'mode': 'sequential x1', 'seed': 2, 'time_s': 48.16493874997832, 'FVE': 0.04117335453954734, 'violation': 9.661517409303375e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'uncorrelatedness', 'mode': 'batched x1', 'seed': 2, 'time_s': 34.409915916156024, 'FVE': 0.044355398132186086, 'violation': 9.490593520625349e-05}
+{'data': 'S&P 500, Sigma p=423', 'constraint': 'uncorrelatedness', 'mode': 'batched x10', 'seed': 2, 'time_s': 14.896080083213747, 'FVE': 0.044355398132186086, 'violation': 9.490593520625349e-05}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'orthogonality', 'mode': 'sequential x1', 'seed': 2, 'time_s': 4.444425458088517, 'FVE': 0.011286334927978241, 'violation': 5.551115123125783e-16}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'orthogonality', 'mode': 'batched x1', 'seed': 2, 'time_s': 2.2148201670497656, 'FVE': 0.011291878886000334, 'violation': 5.551115123125783e-16}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'orthogonality', 'mode': 'batched x10', 'seed': 2, 'time_s': 0.9676442919299006, 'FVE': 0.011291878886000334, 'violation': 5.551115123125783e-16}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'uncorrelatedness', 'mode': 'sequential x1', 'seed': 2, 'time_s': 82.90404420811683, 'FVE': 0.005318582976137541, 'violation': 9.727534494337475e-05}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'uncorrelatedness', 'mode': 'batched x1', 'seed': 2, 'time_s': 73.59037991589867, 'FVE': 0.005341113580134198, 'violation': 3.455035858006284e-05}
+{'data': 'spiked, X n=80 p=2000', 'constraint': 'uncorrelatedness', 'mode': 'batched x10', 'seed': 2, 'time_s': 30.499102875124663, 'FVE': 0.005341113580134198, 'violation': 3.455035858006284e-05}
+                                                          time_s      FVE  FVE_min  viol_max  speedup
+data                      constraint       mode                                                      
+breast cancer, Sigma p=30 orthogonality    sequential x1  0.7733   0.5968   0.5954 9.016e-05        1
+                                           batched x1     0.5775   0.6156   0.5967 9.986e-05    1.339
+                                           batched x10    0.5768   0.6156   0.5967 9.986e-05    1.341
+                          uncorrelatedness sequential x1  0.8206    0.389   0.3852 0.0004399        1
+                                           batched x1     0.6331   0.3857   0.3778  0.001397    1.296
+                                           batched x10    0.6324   0.3857   0.3778  0.001397    1.298
+S&P 500, Sigma p=423      orthogonality    sequential x1   47.36  0.06818  0.06784  9.99e-05        1
+                                           batched x1      39.05  0.06825  0.06806 9.867e-05    1.213
+                                           batched x10     16.91  0.06825  0.06806 9.867e-05      2.8
+                          uncorrelatedness sequential x1   46.64  0.04328  0.04107 9.992e-05        1
+                                           batched x1      35.73  0.04331  0.04186 9.936e-05    1.305
+                                           batched x10     15.38  0.04331  0.04186 9.936e-05    3.032
+spiked, X n=80 p=2000     orthogonality    sequential x1   3.706  0.01137  0.01129 7.772e-16        1
+                                           batched x1      3.272  0.01133  0.01124 5.551e-16    1.132
+                                           batched x10     1.364  0.01133  0.01124 5.551e-16    2.717
+                          uncorrelatedness sequential x1   82.75  0.00536 0.005299 9.728e-05        1
+                                           batched x1      72.52 0.005333 0.005199 7.718e-05    1.141
+                                           batched x10     30.78 0.005333 0.005199 7.718e-05    2.689

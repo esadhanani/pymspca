@@ -1,0 +1,4 @@
+recursive-include src/pymspca/_core *.hpp *.cpp
+recursive-include third_party/eigen/Eigen *
+include third_party/eigen/COPYING.*
+include LICENSE README.md

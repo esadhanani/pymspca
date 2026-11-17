@@ -1,0 +1,31 @@
+TF-IDF: n=11,314 docs x p=17,797 features, nnz=638,596 (0.317% dense)
+dense centred X would need 1.6 GB; dense covariance 2.5 GB
+
+pymspca: 8 components x 12 terms in 393.6s, 300 iterations, orthogonality violation 7.8e-01, FVE 0.0138
+
+PC1: geb, dsl, chastity, n3jxp, cadre, shameful, intellect, pitt, skepticism, surrender, gordon, banks
+PC2: know, thanks, advance, appreciated, don, help, hi, email, information, anybody, info, looking
+PC3: windows, does, card, dos, file, files, know, program, video, drivers, driver, anybody
+PC4: thanks, mail, know, does, advance, address, looking, hi, info, ftp, anybody, help
+PC5: just, don, think, people, say, god, believe, did, things, thanks, jesus, faith
+PC6: drive, scsi, hard, disk, drives, controller, ide, floppy, hd, boot, dos, disks
+PC7: does, windows, know, dos, thanks, file, files, advance, ms, hello, wondering, thanx
+PC8: god, jesus, just, bible, christians, say, christ, faith, christianity, said, don, does
+      397.77 real       693.59 user         2.75 sys
+           348012544  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               47283  page reclaims
+                  44  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                1892  voluntary context switches
+              239546  involuntary context switches
+       5701614591156  instructions retired
+       2178014239940  cycles elapsed
+           298484600  peak memory footprint

@@ -1,0 +1,9 @@
+factor,sector,purity,dense_top10_sector,dense_top10_purity,names
+PC1,Utilities,0.9,Utilities,1.0,ED DUK WEC XEL AEP ES D CNP KMB SO
+PC2,Real Estate,1.0,Financials,0.5,WELL AVB UDR ESS EQR CPT DOC VTR O FRT
+PC3,Energy,0.9,Energy,0.8,DVN APA COP EOG HAL SLB BKR OXY CVX CCL
+PC4,Utilities,0.7,Real Estate,1.0,CMS PNW DTE AEE EVRG CLX CL XEL VTR SO
+PC5,Utilities,0.7777777777777778,Consumer Discretionary,0.5555555555555556,ETR PEG SO EXC LNT AES CPB SCHW PCG DOC
+PC6,Utilities,0.6,Health Care,1.0,NEE FE PPL MAA PSA EXR AEP WELL EXC CMS
+PC7,Utilities,0.7,Consumer Staples,0.8888888888888888,NI SRE ATO PEP KO XEL O LNT DTE NEE
+PC8,Utilities,0.7,Industrials,0.4,PCG EIX AWK REG LNT BEN O ED EVRG PPL
