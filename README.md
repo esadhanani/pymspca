@@ -19,7 +19,7 @@ Z = MultipleSparsePCA(n_components=3, sparsity=10, random_state=0).fit_transform
 
 ## Relation to the R package
 
-- **Same results.** With random restarts off (`max_restart_tpm=0, min_restart_tpm=0`), pymspca reproduces msPCA 0.5.1 bit for bit on 18 reference cases, when both are built on the same platform. CI checks this on Linux x86-64 and macOS arm64 by installing CRAN msPCA from source on each runner ([parity/](parity/)). Across platforms the outputs can differ, as R's own do. With restarts on, results match R's statistically but not exactly, because the random number generators differ.
+- **Same results.** With random restarts off (`max_restart_tpm=0, min_restart_tpm=0`), pymspca reproduces msPCA 0.5.1 bit for bit on 18 reference cases on macOS arm64. CI asserts this against CRAN msPCA built from source on the runner. On Linux x86-64 the two differ in the last bits, but all 18 cases reach the same supports, and the objectives agree to 1e-10 in 15 of them and to 2e-4 in the worst case ([parity/README.md](parity/README.md)). With restarts on, the results are comparable to R's but not identical, because the random number generators differ.
 - **Sparse input.** `X` may be a `scipy.sparse` matrix. Centring and scaling are applied implicitly, as a rank-one correction in each matrix-vector product, so `X` is never densified and the p x p covariance is never formed.
 - **Batched restarts** (`restarts="batched"`, opt-in). Each round of random restarts runs as fixed-width blocks of matrix-matrix products split across threads. For a given seed the result is the same for any number of threads.
 

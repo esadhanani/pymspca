@@ -51,15 +51,14 @@ jobs:
         run: python parity/compare.py r_out
         env:
           PYTHONPATH: tests
-      # Bit-exact parity is asserted on macOS arm64. On Linux x86-64 pymspca and R differ in
-      # the last bits and some cases then reach different local optima (see parity/README.md),
-      # so there the job reports the comparison instead of asserting it.
-      - name: Assert bit-exact parity
-        if: runner.os == 'macOS'
+      # macOS arm64: bit-exact. Linux x86-64: the last bits differ (see parity/README.md),
+      # so assert identical supports and objectives to 1e-3.
+      - name: Assert parity
         run: pytest -q tests/test_parity_r.py
         env:
           PYTHONPATH: tests
           PYMSPCA_R_OUT: r_out
+          PYMSPCA_PARITY_EXACT: ${{ runner.os == 'macOS' && '1' || '0' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
