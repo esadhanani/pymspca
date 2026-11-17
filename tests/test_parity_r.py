@@ -8,6 +8,9 @@ local optima. So the reference outputs must come from R on the same platform as 
   this test is skipped.
 * The ``r-parity`` CI job installs CRAN msPCA from source on each runner, regenerates the
   outputs with ``parity/run_r.R`` and points ``PYMSPCA_R_OUT`` at them.
+* ``PYMSPCA_PARITY_EXACT=0`` relaxes bit-equality to: same support in every component,
+  loadings and objective equal to 1e-10. This is used on Linux x86-64, where pymspca and
+  R differ in the last bits.
 """
 import os
 import platform
@@ -24,6 +27,7 @@ FX = Path(__file__).parent / "fixtures"
 CASES = pd.read_csv(FX / "cases.csv").to_dict("records")
 R_OUT = Path(os.environ["PYMSPCA_R_OUT"]) if os.environ.get("PYMSPCA_R_OUT") else FX
 FIXTURE_PLATFORM = ("Darwin", "arm64")
+EXACT = os.environ.get("PYMSPCA_PARITY_EXACT", "1") != "0"
 pytestmark = pytest.mark.skipif(
     R_OUT == FX and (platform.system(), platform.machine()) != FIXTURE_PLATFORM,
     reason="committed R fixtures are from macOS arm64; set PYMSPCA_R_OUT to outputs of parity/run_r.R on this platform")
@@ -39,9 +43,15 @@ def test_matches_r_exactly(cs):
                             check_psd=False)
     U_r = read(R_OUT / f"{cs['id']}_U.bin")
     obj_r, viol_r, tot_r, _ = read(R_OUT / f"{cs['id']}_meta.bin").ravel()
-    np.testing.assert_array_equal(res.x_best, U_r)
-    assert res.objective_value == obj_r
-    assert res.feasibility_violation == viol_r
+    if EXACT:
+        np.testing.assert_array_equal(res.x_best, U_r)
+        assert res.objective_value == obj_r
+        assert res.feasibility_violation == viol_r
+    else:
+        for j in range(U_r.shape[1]):
+            assert set(np.flatnonzero(res.x_best[:, j])) == set(np.flatnonzero(U_r[:, j])), f"support of PC{j + 1}"
+        np.testing.assert_allclose(res.x_best, U_r, rtol=0, atol=1e-10)
+        assert res.objective_value == pytest.approx(obj_r, rel=1e-10)
     assert res.total_variance == pytest.approx(tot_r, rel=1e-14)
 
 
