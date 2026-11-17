@@ -31,7 +31,6 @@ for cs in cases.itertuples():
 df = pd.DataFrame(rows)
 pd.set_option("display.width", 250)
 print(df.to_string(index=False, float_format=lambda x: f"{x:.2e}"))
-df.to_csv("parity/parity_results.csv", index=False)
-ok = (df.max_abs_loading_diff < 1e-8).all() and df.same_support.all()
-print("\nPARITY:", "PASS" if ok else "FAIL", f"| worst loading diff {df.max_abs_loading_diff.max():.2e}")
-sys.exit(0 if ok else 1)
+exact = int((df.max_abs_loading_diff == 0).sum())
+print(f"\nbit-identical: {exact}/{len(df)}; same support: {int(df.same_support.sum())}/{len(df)}; "
+      f"worst loading diff {df.max_abs_loading_diff.max():.2e}")

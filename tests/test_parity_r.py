@@ -9,8 +9,7 @@ local optima. So the reference outputs must come from R on the same platform as 
 * The ``r-parity`` CI job installs CRAN msPCA from source on each runner, regenerates the
   outputs with ``parity/run_r.R`` and points ``PYMSPCA_R_OUT`` at them.
 * ``PYMSPCA_PARITY_EXACT=0`` relaxes bit-equality to: same support in every component,
-  loadings and objective equal to 1e-10. This is used on Linux x86-64, where pymspca and
-  R differ in the last bits.
+  loadings and objective equal to 1e-10.
 """
 import os
 import platform

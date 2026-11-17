@@ -9,7 +9,7 @@ description = "Sparse PCA with multiple components (Cory-Wright & Pauphilet, Ope
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Esa Dhanani" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["numpy>=1.22", "scipy>=1.8", "scikit-learn>=1.6"]
 classifiers = [
   "Programming Language :: Python :: 3",
